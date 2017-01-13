@@ -41,7 +41,7 @@ dependencies {
     compile project(":java-crypto-conditions")
     compile project(":java-ilp-core")
     compile project(":java-ilp-client")
-    compile project(":java-ilp-ledger-adaptor-rest")
+    compile project(":java-ilp-ledger-adaptor-rest-spring")
     
  	compile("org.slf4j:jcl-over-slf4j:1.7.12")
     

@@ -8,10 +8,15 @@ import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.interledger.ilp.core.InterledgerAddress;
 import org.interledger.ilp.ledger.client.json.JsonQuoteRequest;
+import org.interledger.ilp.ledger.client.json.JsonQuoteResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
 public class GetQuoteCommand extends LedgerCommand {
+
+  private static final Logger log = LoggerFactory.getLogger(GetQuoteCommand.class);
 
   @Override
   public String getCommand() {
@@ -58,17 +63,23 @@ public class GetQuoteCommand extends LedgerCommand {
     }
     
     InterledgerAddress ledger = ledgerClient.getAdaptor().getLedgerInfo().getAddressPrefix();
-    InterledgerAddress connector = InterledgerAddress.fromPrefixAndPath(ledger, cmd.getOptionValue("connector"));
     
     if(cmd.getOptionValue("connector") != null) {
       Set<InterledgerAddress> connectors = new HashSet<>();
-      connectors.add(connector);
+      connectors.add(InterledgerAddress.fromPrefixAndPath(ledger, cmd.getOptionValue("connector")));
       quoteParams.setConnectors(connectors);      
     }
     
-    this.ledgerClient.requestQuote(quoteParams);
-    
+    JsonQuoteResponse quoteResponse = this.ledgerClient.requestQuote(quoteParams);
+    if (quoteResponse == null) {
+      log.info("no quote received");
+    } else {
+      log.info(
+          "received quote: source amount {}, expiry duration {}; dest amount {}, expiry duration {}, connector account {}",
+          quoteResponse.getSourceAmount(), quoteResponse.getSourceExpiryDuration(),
+          quoteResponse.getDestinationAmount(), quoteResponse.getDestinationExpiryDuration(),
+          quoteResponse.getSourceConnectorAccount());
+    }
   }
-
 }
 

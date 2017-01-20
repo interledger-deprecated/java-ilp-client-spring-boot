@@ -1,4 +1,4 @@
-package org.interledger.ilp.ledger.client.commands;
+package org.interledger.ilp.client.commands;
 
 import java.util.Map;
 

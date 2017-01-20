@@ -1,4 +1,4 @@
-package org.interledger.ilp.ledger.client.commands;
+package org.interledger.ilp.client.commands;
 
 import java.util.Arrays;
 import java.util.Map;
@@ -11,7 +11,7 @@ import org.apache.commons.cli.MissingArgumentException;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.UnrecognizedOptionException;
-import org.interledger.ilp.ledger.client.LedgerClient;
+import org.interledger.ilp.client.LedgerClient;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -58,6 +58,7 @@ public abstract class LedgerCommand implements CommandLineRunner, ApplicationCon
         runCommand(cmd);
       } catch (UnrecognizedOptionException | MissingArgumentException e) {
         System.err.println("Error parsing options.");
+        e.printStackTrace();
         printHelp();
       }
     }

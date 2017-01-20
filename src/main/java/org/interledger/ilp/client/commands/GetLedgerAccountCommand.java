@@ -1,9 +1,7 @@
-package org.interledger.ilp.ledger.client.commands;
+package org.interledger.ilp.client.commands;
 
 import org.apache.commons.cli.CommandLine;
-import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
-import org.interledger.ilp.core.InterledgerAddress;
 import org.interledger.ilp.core.ledger.model.AccountInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,20 +24,15 @@ public class GetLedgerAccountCommand extends LedgerCommand {
 
   @Override
   public Options getOptions() {
-    return getDefaultOptions().addOption(Option.builder("account").argName("account").hasArg().required()
-        .desc("ExtendedAccountInfo to query").build());
+    return getDefaultOptions();
   }
 
   @Override
   protected void runCommand(CommandLine cmd) throws Exception {
     try {
       
-      String account = cmd.getOptionValue("account");
-      InterledgerAddress address = InterledgerAddress.fromPrefixAndPath(
-          this.ledgerClient.getAdaptor().getLedgerInfo().getAddressPrefix(), 
-          account);
-      log.debug("Getting extended account details for " + account);
-      AccountInfo accountData = ledgerClient.getAdaptor().getAccountInfo(address);
+      log.debug("Getting account details for " + ledgerClient.getAccount());
+      AccountInfo accountData = ledgerClient.getAccountInfo();
       
       log.info(accountData.toString());
     } catch (Exception e) {

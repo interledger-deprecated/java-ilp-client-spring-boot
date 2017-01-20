@@ -1,4 +1,4 @@
-package org.interledger.ilp.ledger.client.events;
+package org.interledger.ilp.client.events;
 
 import org.interledger.ilp.core.ledger.events.LedgerEvent;
 import org.interledger.ilp.core.ledger.events.LedgerEventHandler;

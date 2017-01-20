@@ -1,4 +1,4 @@
-package org.interledger.ilp.ledger.client.commands;
+package org.interledger.ilp.client.commands;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.Options;
@@ -7,13 +7,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DisconnectLedgerCommand extends LedgerCommand {
+public class DisconnectCommand extends LedgerCommand {
 
-  private static final Logger log = LoggerFactory.getLogger(DisconnectLedgerCommand.class);
+  private static final Logger log = LoggerFactory.getLogger(DisconnectCommand.class);
 
   @Override
   public String getCommand() {
-    return "disconnectLedger";
+    return "disconnect";
   }
 
   @Override

@@ -8,11 +8,11 @@
 	<context:annotation-config/>
 	<context:property-placeholder ignore-unresolvable="true" null-value="" />
 	
-	<bean id="application" class="org.interledger.ilp.ledger.client.Application">
+	<bean id="application" class="org.interledger.ilp.client.Application">
 	</bean>
 	
 	<!-- Publish events via the ApplicationContext event publisher  -->
-	<bean id="applicationEventHandler" class="org.interledger.ilp.ledger.client.events.ApplicationEventPublishingLedgerEventHandler">
+	<bean id="applicationEventHandler" class="org.interledger.ilp.client.events.ApplicationEventPublishingLedgerEventHandler">
 	</bean>
 
 
@@ -25,15 +25,9 @@
 		<constructor-arg name="address" value="${ledger.client.connector}"/>
     </bean>
 
-	<bean id="ledgerClient" class="org.interledger.ilp.ledger.client.LedgerClient">
+	<bean id="ledgerClient" class="org.interledger.ilp.client.LedgerClient">
     	<constructor-arg name="adaptor" ref="restLedgerAdaptor"/>
-    	<constructor-arg name="account" ref="accountAddress">
-    	</constructor-arg>
-    	<constructor-arg name="connectors">
-			<set>
-				<ref bean="connectorAddress"/>
-			</set>
-    	</constructor-arg>
+    	<constructor-arg name="account" ref="accountAddress"/>
     	<constructor-arg name="eventHandler" ref="applicationEventHandler"/>
 	</bean>	
 	

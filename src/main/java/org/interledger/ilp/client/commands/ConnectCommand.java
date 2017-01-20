@@ -1,4 +1,4 @@
-package org.interledger.ilp.ledger.client.commands;
+package org.interledger.ilp.client.commands;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.Options;
@@ -7,13 +7,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ConnectLedgerCommand extends LedgerCommand {
+public class ConnectCommand extends LedgerCommand {
 
-  private static final Logger log = LoggerFactory.getLogger(ConnectLedgerCommand.class);
+  private static final Logger log = LoggerFactory.getLogger(ConnectCommand.class);
   
   @Override
   public String getCommand() {
-    return "connectLedger";
+    return "connect";
   }
 
   @Override
@@ -31,16 +31,12 @@ public class ConnectLedgerCommand extends LedgerCommand {
     
     if(this.ledgerClient.isConnected()) {
       log.info("Already connected");
-      log.debug(this.ledgerClient.getAdaptor().getLedgerInfo().toString());
+      log.debug(this.ledgerClient.getLedgerInfo().toString());
       return;
     }
     
     log.info("Connecting...");
     this.ledgerClient.connect();
-    
-    log.debug(this.ledgerClient.getAdaptor().getLedgerInfo().toString());
-    
-    log.info("Connected");
     
   }
 }

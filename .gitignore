@@ -33,3 +33,4 @@ gradle-app.setting
 ### Local Config - May contain passwords ###
 config/application.properties
 
+**/.DS_Store

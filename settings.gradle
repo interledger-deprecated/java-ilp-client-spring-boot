@@ -12,3 +12,6 @@ project(':java-ilp-client').projectDir = new File(settingsDir, '../java-ilp-clie
 include ':java-ilp-ledger-adaptor-rest-spring'
 project(':java-ilp-ledger-adaptor-rest-spring').projectDir = new File(settingsDir, '../java-ilp-ledger-adaptor-rest-spring')
 
+include ':java-spsp-client-spring'
+project(':java-spsp-client-spring').projectDir = new File(settingsDir, '../java-spsp-client-spring')
+

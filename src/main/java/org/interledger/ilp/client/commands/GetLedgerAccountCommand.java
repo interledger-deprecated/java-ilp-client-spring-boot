@@ -2,7 +2,7 @@ package org.interledger.ilp.client.commands;
 
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.Options;
-import org.interledger.ilp.core.ledger.model.AccountInfo;
+import org.interledger.ilp.ledger.model.AccountInfo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;

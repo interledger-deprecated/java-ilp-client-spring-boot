@@ -6,7 +6,7 @@ import java.util.Map.Entry;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
-import org.interledger.ilp.core.ledger.LedgerAdaptor;
+import org.interledger.ilp.ledger.LedgerAdaptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;

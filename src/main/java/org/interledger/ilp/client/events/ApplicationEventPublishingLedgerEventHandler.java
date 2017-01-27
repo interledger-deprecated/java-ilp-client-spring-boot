@@ -1,7 +1,7 @@
 package org.interledger.ilp.client.events;
 
-import org.interledger.ilp.core.ledger.events.LedgerEvent;
-import org.interledger.ilp.core.ledger.events.LedgerEventHandler;
+import org.interledger.ilp.ledger.events.LedgerEvent;
+import org.interledger.ilp.ledger.events.LedgerEventHandler;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationEventPublisherAware;
 

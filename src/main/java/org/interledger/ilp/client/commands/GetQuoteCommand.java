@@ -10,10 +10,12 @@ import javax.money.MonetaryAmount;
 import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
-import org.interledger.ilp.core.InterledgerAddress;
-import org.interledger.ilqp.client.ClientQuoteService;
+import org.interledger.client.quoting.BasicQuoteSelectionStrategies;
+import org.interledger.ilp.InterledgerAddress;
+import org.interledger.ilqp.client.IlqpQuoteService;
 import org.interledger.ilqp.client.model.ClientQuoteRequest;
-import org.interledger.ilqp.core.model.QuoteResponse;
+import org.interledger.quoting.QuoteService;
+import org.interledger.quoting.model.QuoteResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -85,7 +87,7 @@ public class GetQuoteCommand extends LedgerCommand {
     
     InterledgerAddress ledger = ledgerClient.getLedgerInfo().getAddressPrefix();
     
-    ClientQuoteService service = new ClientQuoteService(ledgerClient);
+    QuoteService service = new IlqpQuoteService(ledgerClient);
     
     log.info("Getting quote...");
     QuoteResponse response;
@@ -93,7 +95,7 @@ public class GetQuoteCommand extends LedgerCommand {
       InterledgerAddress connector = InterledgerAddress.fromPrefixAndPath(ledger, cmd.getOptionValue("connector"));
       response = service.requestQuote(quoteParams, connector);
     } else {
-      response = service.requestQuote(quoteParams);
+      response = service.requestQuote(quoteParams, BasicQuoteSelectionStrategies.LowestSourceAmount);
     }
     log.info("Quote: " + response);
     

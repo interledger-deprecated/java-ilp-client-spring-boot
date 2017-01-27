@@ -42,6 +42,7 @@ dependencies {
     compile project(":java-ilp-core")
     compile project(":java-ilp-client")
     compile project(":java-ilp-ledger-adaptor-rest-spring")
+    compile project(":java-spsp-client-spring")
     
  	compile("org.slf4j:jcl-over-slf4j:1.7.12")
     

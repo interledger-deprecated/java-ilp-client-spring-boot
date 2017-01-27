@@ -9,6 +9,6 @@ project(':java-ilp-core').projectDir = new File(settingsDir, '../java-ilp-core')
 include ':java-ilp-client'
 project(':java-ilp-client').projectDir = new File(settingsDir, '../java-ilp-client')
 
-include ':java-ilp-ledger-adaptor-rest'
-project(':java-ilp-ledger-adaptor-rest').projectDir = new File(settingsDir, '../java-ilp-ledger-adaptor-rest')
+include ':java-ilp-ledger-adaptor-rest-spring'
+project(':java-ilp-ledger-adaptor-rest-spring').projectDir = new File(settingsDir, '../java-ilp-ledger-adaptor-rest-spring')
 

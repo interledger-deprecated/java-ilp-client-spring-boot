@@ -10,7 +10,7 @@ import org.interledger.ilp.client.events.ClientLedgerConnectEvent;
 import org.interledger.ilp.client.events.ClientLedgerErrorEvent;
 import org.interledger.ilp.client.events.ClientLedgerMessageEvent;
 import org.interledger.ilp.client.events.ClientLedgerTransferEvent;
-import org.interledger.ilp.core.ledger.events.LedgerEvent;
+import org.interledger.ilp.ledger.events.LedgerEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;

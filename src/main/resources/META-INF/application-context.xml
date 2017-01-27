@@ -17,11 +17,11 @@
 
 
 	<!--  Load the Ledger Client -->	
-    <bean id="accountAddress" class="org.interledger.ilp.core.InterledgerAddress">
+    <bean id="accountAddress" class="org.interledger.ilp.InterledgerAddress">
 		<constructor-arg name="address" value="${ledger.client.account}"/>
     </bean>
 
-	<bean id="connectorAddress" class="org.interledger.ilp.core.InterledgerAddress">
+	<bean id="connectorAddress" class="org.interledger.ilp.InterledgerAddress">
 		<constructor-arg name="address" value="${ledger.client.connector}"/>
     </bean>
 

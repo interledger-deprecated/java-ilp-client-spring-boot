@@ -1,4 +1,4 @@
-# java-ilp-client-spring-boot
+# java-ilp-client-spring-boot [![CircleCI](https://circleci.com/gh/interledger/java-ilp-client-spring-boot.svg?style=svg)](https://circleci.com/gh/interledger/java-ilp-client-spring-boot)
 A command line client runner using Spring Boot
 
 ## Develop

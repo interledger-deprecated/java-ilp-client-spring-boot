@@ -9,10 +9,10 @@ The project is setup to find project dependencies in the same directory so the e
 
 ```bash
 
-    $ git checkout https://github.com/interledger/java-crypto-conditions.git
-    $ git checkout https://github.com/interledger/java-ilp-core.git
-    $ git checkout https://github.com/interledger/java-ilp-client.git
-    $ git checkout https://github.com/interledger/java-ilp-ledger-adaptor-rest-spring.git
+    $ git clone https://github.com/interledger/java-crypto-conditions.git
+    $ git clone https://github.com/interledger/java-ilp-core.git
+    $ git clone https://github.com/interledger/java-ilp-client.git
+    $ git clone https://github.com/interledger/java-ilp-ledger-adaptor-rest-spring.git
 
 ```
 
